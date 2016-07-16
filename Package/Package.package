@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="d83914be-0cac-4968-8347-11f76d784c90" solutionId="d83914be-0cac-4968-8347-11f76d784c90" resetWebServer="false" sharePointProductVersion="15.0" name="VWPEmployeesMenu" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="01a548d0-705a-4937-9211-4915a29d3d7f" />
+  </features>
+</package>

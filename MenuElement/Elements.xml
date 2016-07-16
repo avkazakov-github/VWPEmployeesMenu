@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <CustomAction Id="777795373_4784_635e_8dcd_6w829cb1k310_StatusEmployees"
+      RegistrationType="List"
+      RegistrationId="{$ListId:Lists/MFCEmployees;}"
+      Description="Все о сотруднике. Статусы."
+      Location="EditControlBlock"
+      Rights="AddListItems,EditListItems,DeleteListItems"
+      Sequence="1"
+      Title="Все о сотруднике">
+    <UrlAction Url="{SiteUrl}/Lists/MFCEmployees/DispForm.aspx?ID={ItemId}&amp;source={SiteUrl}/Lists/MFCEmployees/" />
+  </CustomAction>
+  <!--Установить статус - на работе-->
+  <CustomAction Id="456495373_4784_635e_8dcd_6w829cb1k310_StatusEmployees"
+      RegistrationType="List"
+      RegistrationId="{$ListId:Lists/MFCEmployees;}"
+      Description="Меняет статус работника с любого на работу. статус может сменить только начальник отдела."
+      Location="EditControlBlock"
+      Rights="AddListItems,EditListItems,DeleteListItems"
+      Sequence="10002"
+      Title="Установить статус - на работе">
+    <UrlAction Url="javascript:DefaultDialogQ('StatusEmployees001','Редактирование статуса у работника','Установить','Установить состояние текущего работника как - на работе?',450,240,0,null,{ListURLDir:decodeURI('{ListUrlDir}'),ListID:decodeURI('{ListId}'),ItemURL:decodeURI('{ItemUrl}'),ItemID:'{ItemId}'}, 'UpdateStatusEmployee');" />
+  </CustomAction>
+  <!--Новый статус для сотрудника-->
+  <CustomAction Id="35695349_4784_478e_8dcd_4e541cb1d682_StatusEmployees"
+      RegistrationType="List"
+      RegistrationId="{$ListId:Lists/MFCEmployees;}"
+      Description="Применяется в том случае, если у текущего сотрудника поменялось или планируется поменяться состояние на работе – отпуск, отгул, прогул и др. "
+      Location="EditControlBlock"
+      Rights="AddListItems,EditListItems,DeleteListItems"
+      Sequence="10003"
+      Title="Новый статус для сотрудника">
+    <UrlAction Url="javascript: void(window.location.href=decodeURI('{SiteUrl}/Lists/MFCEmployeesStatus/NewForm.aspx?MFCEmployeesId={ItemId}&amp;source={SiteUrl}/Lists/MFCEmployees/'));" />
+  </CustomAction>
+  <!--Обнулить отгулы часы-->
+  <CustomAction Id="956495373_4784_635e_8dcd_6w260cb1k310_StatusEmployees"
+      RegistrationType="List"
+      RegistrationId="{$ListId:Lists/MFCEmployees;}"
+      Description="Обнуляет отгулы-часы. Редактировать отгулы-часы может только начальник отдела."
+      Location="EditControlBlock"
+      Rights="AddListItems,EditListItems,DeleteListItems"
+      Sequence="10005"
+      Title="Обнулить отгулы-часы">
+    <UrlAction Url="javascript:DefaultDialogQ('CompensatoryLeave001','Редактирование отгулов-часов','Обнулить','Обнулить отгулы-часы у текущего сотрудника?',450,240,0,null,{ListURLDir:decodeURI('{ListUrlDir}'),ListID:decodeURI('{ListId}'),ItemURL:decodeURI('{ItemUrl}'),ItemID:'{ItemId}'}, 'UpdateCompensatoryLeave');" />
+  </CustomAction>
+  <!--Назначить этот статус как текущий-->
+  <CustomAction Id="15432329_4784_999e_8dcd_4e541aa1d682_StatusEmployees"
+      RegistrationType="List"
+      RegistrationId="{$ListId:Lists/MFCEmployeesStatus;}"
+      Description="Назначить этот статус как текущий"
+      Location="EditControlBlock"
+      Rights="AddListItems,EditListItems,DeleteListItems"
+      Sequence="1"
+      Title="Назначить этот статус как текущий">
+    <UrlAction Url="javascript: DefaultDialogQ('StatusEmployees001','Редактирование статуса у работника','Назначить','Назначить выбранный статус как текущий?',450,240,0,null,{ListURLDir:decodeURI('{ListUrlDir}'),ListID:decodeURI('{ListId}'),ItemURL:decodeURI('{ItemUrl}'),ItemID:'{ItemId}'}, 'UpdateEmployeeStatus');" />
+  </CustomAction>
+  <!--Пересчитать (обновить) отгулы-часы-->
+  <CustomAction Id="15432329_3333_999e_8dcd_4e541aa9d682_StatusEmployees"
+      RegistrationType="List"
+      RegistrationId="{$ListId:Lists/MFCEmployees;}"
+      Description="Пересчитать (обновить) отгулы-часы"
+      Location="EditControlBlock"
+      Rights="AddListItems,EditListItems,DeleteListItems"
+      Sequence="5"
+      Title="Пересчитать (обновить) отгулы-часы">
+    <UrlAction Url="javascript: DefaultDialogQ('StatusEmployees041','Пересчитать (обновить) отгулы-часы','Пересчитать отгулы-часы','Сведения о дежурствах и отгулах сотрудника(работника) за весь период работы',1150,700,5,'CompensatoryLeaveAll',{ListID:decodeURI('{ListId}'),ItemID:'{ItemId}', update: true }, 'UpdateCompensatoryLeaveAll');" />
+  </CustomAction>
+</Elements>
